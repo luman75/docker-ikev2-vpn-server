@@ -1,0 +1,13 @@
+version: "2"
+services:
+  ikev2-vpn-server:
+    image: luman75/docker-ikev2-vpn-server
+    container_name: ikev2-vpn-server
+    ports:
+    - 500/udp:500/udp
+    - 4500/udp:4500/udp
+    privileged: true
+    restart: always
+    volumes:
+    - /volume/ikev2-vpn-server/etc/ipsec.secrets:/etc/ipsec.secrets:ro
+    - /volume/ikev2-vpn-server/etc/ipsec.conf:/etc/ipsec.conf:ro
